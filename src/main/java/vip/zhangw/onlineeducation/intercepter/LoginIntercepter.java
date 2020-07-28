@@ -65,8 +65,8 @@ public class LoginIntercepter implements HandlerInterceptor {
      * @param json
      */
     public void renderJson(HttpServletResponse response, String json){
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         try {
             PrintWriter printWriter = response.getWriter();
             printWriter.print(json);

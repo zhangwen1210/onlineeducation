@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import vip.zhangw.onlineeducation.domain.User;
-import vip.zhangw.onlineeducation.service.impl.UserServiceImpl;
 import vip.zhangw.onlineeducation.util.JsonData;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +35,7 @@ public class LoginIntercepter implements HandlerInterceptor {
             return false;
         }else {
             // 判断 token 是否合法
-            User user = UserServiceImpl.sessionMap.get(token);
+            /*User user = UserServiceImpl.sessionMap.get(token);
             if (user != null){
                 //token验证通过
                 return true;
@@ -47,10 +45,10 @@ public class LoginIntercepter implements HandlerInterceptor {
                 String jsonStr = objectMapper.writeValueAsString(jsonData);
                 renderJson(response, jsonStr);
                 return false;
-            }
+            }*/
         }
 
-        //return HandlerInterceptor.super.preHandle(request, response, handler);
+        return HandlerInterceptor.super.preHandle(request, response, handler);
     }
 
     @Override

@@ -2,12 +2,9 @@ package vip.zhangw.onlineeducation.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.util.StringUtils;
-import vip.zhangw.onlineeducation.domain.User;
-import vip.zhangw.onlineeducation.service.impl.UserServiceImpl;
 import vip.zhangw.onlineeducation.util.JsonData;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -45,7 +42,7 @@ public class LoginFilter implements Filter {
             renderJson(response, jsonStr);
         }else {
             // 判断 token 是否合法
-            User user = UserServiceImpl.sessionMap.get(token);
+            /*User user = UserServiceImpl.sessionMap.get(token);
             if (user != null){
                 //token验证通过
                 filterChain.doFilter(servletRequest, servletResponse);
@@ -54,7 +51,7 @@ public class LoginFilter implements Filter {
                 JsonData jsonData = JsonData.buildError("token不合法！", -3);
                 String jsonStr = objectMapper.writeValueAsString(jsonData);
                 renderJson(response, jsonStr);
-            }
+            }*/
         }
     }
 

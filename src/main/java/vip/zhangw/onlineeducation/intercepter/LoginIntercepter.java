@@ -1,9 +1,11 @@
 package vip.zhangw.onlineeducation.intercepter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Claims;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import vip.zhangw.onlineeducation.util.JWTUtils;
 import vip.zhangw.onlineeducation.util.JsonData;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,26 +31,26 @@ public class LoginIntercepter implements HandlerInterceptor {
         }
         if (StringUtils.isEmpty(token)){
             // 没有token，尚未登录
-            JsonData jsonData = JsonData.buildError("尚未登录！", -2);
+            JsonData jsonData = JsonData.buildError("尚未登录！");
             String jsonStr = objectMapper.writeValueAsString(jsonData);
             renderJson(response, jsonStr);
             return false;
         }else {
             // 判断 token 是否合法
-            /*User user = UserServiceImpl.sessionMap.get(token);
-            if (user != null){
-                //token验证通过
-                return true;
-            }else {
-                // 有token 但是不合法，无法根据token获取对应用户信息
-                JsonData jsonData = JsonData.buildError("token不合法！", -3);
+            Claims claims = JWTUtils.checkJWT(token);
+            if (claims == null){
+                // token不合法或者过期
+                JsonData jsonData = JsonData.buildError("尚未登录！");
                 String jsonStr = objectMapper.writeValueAsString(jsonData);
                 renderJson(response, jsonStr);
                 return false;
-            }*/
+            }
+            Integer id = (Integer) claims.get("id");
+            String name = (String) claims.get("name");
+            request.setAttribute("user_id", id);
+            request.setAttribute("name", name);
+            return true;
         }
-
-        return HandlerInterceptor.super.preHandle(request, response, handler);
     }
 
     @Override

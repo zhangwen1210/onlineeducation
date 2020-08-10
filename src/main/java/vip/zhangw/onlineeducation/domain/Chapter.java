@@ -1,6 +1,7 @@
 package vip.zhangw.onlineeducation.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class Chapter {
     private Integer id;
@@ -13,6 +14,8 @@ public class Chapter {
 
     private Date createTime;
 
+    private List<Episode> episodeList;
+
     public Chapter() {
     }
 
@@ -24,6 +27,7 @@ public class Chapter {
                 ", title='" + title + '\'' +
                 ", ordered=" + ordered +
                 ", createTime=" + createTime +
+                ", episodeList=" + episodeList +
                 '}';
     }
 
@@ -65,5 +69,13 @@ public class Chapter {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public List<Episode> getEpisodeList() {
+        return episodeList;
+    }
+
+    public void setEpisodeList(List<Episode> episodeList) {
+        this.episodeList = episodeList;
     }
 }

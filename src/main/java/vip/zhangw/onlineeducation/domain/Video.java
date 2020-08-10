@@ -1,6 +1,9 @@
 package vip.zhangw.onlineeducation.domain;
 
+import org.apache.catalina.LifecycleState;
+
 import java.util.Date;
+import java.util.List;
 
 public class Video {
     private Integer id;
@@ -17,6 +20,8 @@ public class Video {
 
     private Double point;
 
+    private List<Chapter> chapterList;
+
     public Video() {
     }
 
@@ -30,6 +35,7 @@ public class Video {
                 ", price=" + price +
                 ", createTime=" + createTime +
                 ", point=" + point +
+                ", chapterList=" + chapterList +
                 '}';
     }
 
@@ -87,5 +93,13 @@ public class Video {
 
     public void setPoint(Double point) {
         this.point = point;
+    }
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
     }
 }

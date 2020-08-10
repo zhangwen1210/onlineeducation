@@ -1,5 +1,8 @@
 package vip.zhangw.onlineeducation.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import java.util.Date;
 
 public class User {
@@ -7,6 +10,7 @@ public class User {
 
     private String name;
 
+    @JsonIgnore
     private String pwd;
 
     private String headImg;

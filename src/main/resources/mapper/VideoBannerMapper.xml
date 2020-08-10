@@ -90,4 +90,11 @@
       weight = #{weight,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--List<VideoBanner> selectVideoBannerAll();-->
+  <select id="selectVideoBannerAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from video_banner order by weight asc
+  </select>
 </mapper>

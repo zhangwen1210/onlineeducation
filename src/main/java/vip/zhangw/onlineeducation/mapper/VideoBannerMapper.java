@@ -2,6 +2,8 @@ package vip.zhangw.onlineeducation.mapper;
 
 import vip.zhangw.onlineeducation.domain.VideoBanner;
 
+import java.util.List;
+
 public interface VideoBannerMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface VideoBannerMapper {
     int updateByPrimaryKeySelective(VideoBanner record);
 
     int updateByPrimaryKey(VideoBanner record);
+
+    List<VideoBanner> selectVideoBannerAll();
 }

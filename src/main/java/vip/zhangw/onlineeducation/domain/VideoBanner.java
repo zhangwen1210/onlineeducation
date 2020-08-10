@@ -1,5 +1,7 @@
 package vip.zhangw.onlineeducation.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class VideoBanner {
@@ -9,6 +11,7 @@ public class VideoBanner {
 
     private String img;
 
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
     private Date createTime;
 
     private Integer weight;

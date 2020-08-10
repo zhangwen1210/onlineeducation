@@ -103,4 +103,20 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--User findByPhone(String phone);-->
+  <select id="findByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+
+  <!--User findByPhoneAndPwd(@Param("phone") String phone, @Param("pwd") String pwd);-->
+  <select id="findByPhoneAndPwd" resultType="User">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where phone = #{phone,jdbcType=VARCHAR} and pwd = #{pwd,jdbcType=VARCHAR}
+  </select>
 </mapper>

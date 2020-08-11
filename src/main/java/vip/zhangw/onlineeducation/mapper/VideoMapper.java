@@ -23,4 +23,5 @@ public interface VideoMapper {
     List<Video> selectAll();
 
     Video findDetailById(int videoId);
+
 }

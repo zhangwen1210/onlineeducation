@@ -2,6 +2,7 @@ package vip.zhangw.onlineeducation.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import vip.zhangw.onlineeducation.domain.Video;
 import vip.zhangw.onlineeducation.domain.VideoBanner;
 import vip.zhangw.onlineeducation.mapper.VideoBannerMapper;
@@ -17,6 +18,7 @@ import java.util.List;
  * @create: 2020-08-06 17:31
  **/
 @Service
+@Transactional
 public class VideoServiceImpl implements VideoService {
 
     @Autowired

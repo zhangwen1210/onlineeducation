@@ -1,5 +1,6 @@
 package vip.zhangw.onlineeducation.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import vip.zhangw.onlineeducation.domain.Episode;
 
 public interface EpisodeMapper {
@@ -14,4 +15,6 @@ public interface EpisodeMapper {
     int updateByPrimaryKeySelective(Episode record);
 
     int updateByPrimaryKey(Episode record);
+
+    Episode selectByVideoId(@Param("video_id") Integer video_id);
 }

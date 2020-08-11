@@ -21,7 +21,7 @@ public class CustomException {
 
     @ExceptionHandler(value = Exception.class)
     public JsonData handleException(Exception e){
-        logger.error("[ 系统异常 ]{} " + e);
+        logger.error("[ 系统异常 ]{} " + e.getMessage());
         if( e instanceof ZdyException ){
             ZdyException zdyException = (ZdyException) e;
             return JsonData.buildError(zdyException.getMsg(),zdyException.getCode());

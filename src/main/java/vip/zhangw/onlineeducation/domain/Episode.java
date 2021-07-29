@@ -1,5 +1,8 @@
 package vip.zhangw.onlineeducation.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Episode {
@@ -11,14 +14,19 @@ public class Episode {
 
     private Integer ordered;
 
+    @JsonProperty("play_url")
     private String playUrl;
 
+    @JsonProperty("chapter_id")
     private Integer chapterId;
 
     private Byte free;
 
+    @JsonProperty("video_id")
     private Integer videoId;
 
+    @JsonProperty("create_time")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
     private Date createTime;
 
     public Episode() {

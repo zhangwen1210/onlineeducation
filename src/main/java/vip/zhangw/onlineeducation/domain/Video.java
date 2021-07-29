@@ -1,5 +1,7 @@
 package vip.zhangw.onlineeducation.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.catalina.LifecycleState;
 
 import java.util.Date;
@@ -12,14 +14,18 @@ public class Video {
 
     private String summary;
 
+    @JsonProperty("cover_img")
     private String coverImg;
 
     private Integer price;
 
+    @JsonProperty("create_time")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
     private Date createTime;
 
     private Double point;
 
+    @JsonProperty("chapter_list")
     private List<Chapter> chapterList;
 
     public Video() {

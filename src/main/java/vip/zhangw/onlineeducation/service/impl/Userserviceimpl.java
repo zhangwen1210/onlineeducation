@@ -12,6 +12,7 @@ import vip.zhangw.onlineeducation.service.Userservice;
 import vip.zhangw.onlineeducation.util.CommonUtil;
 import vip.zhangw.onlineeducation.util.JWTUtils;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
@@ -60,6 +61,7 @@ public class Userserviceimpl implements Userservice {
             String pwd = userInfo.get("pwd");
             user.setPwd(CommonUtil.MD5(pwd));
             user.setHeadImg(ramdomHeadImg());
+            user.setCreateTime(new Date());
             return user;
         }else {
             return null;

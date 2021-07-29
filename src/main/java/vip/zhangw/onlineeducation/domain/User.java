@@ -1,6 +1,8 @@
 package vip.zhangw.onlineeducation.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import java.util.Date;
@@ -13,10 +15,13 @@ public class User {
     @JsonIgnore
     private String pwd;
 
+    @JsonProperty("head_img")
     private String headImg;
 
     private String phone;
 
+    @JsonProperty("create_time")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
     private Date createTime;
 
     public User() {
